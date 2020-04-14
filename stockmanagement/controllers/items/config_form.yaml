@@ -1,0 +1,11 @@
+name: Items
+modelClass: Arkylus\Stockmanagement\Models\Item
+form: $/arkylus/stockmanagement/models/item/fields.yaml
+defaultRedirect: arkylus/stockmanagement/items
+create:
+    redirect: 'arkylus/stockmanagement/items/update/:id'
+    redirectClose: arkylus/stockmanagement/items
+update:
+    redirect: arkylus/stockmanagement/items
+    redirectClose: arkylus/stockmanagement/items
+preview: {  }

@@ -1,0 +1,14 @@
+.summary-top{
+	background-color:  #2b1266;	
+	text-align: center;
+}
+
+.summary-top h4, .summary-top p, .summary-top table{
+	color: #d7d2e3 !important;
+	font-weight: 600;
+}
+
+
+.item-stock-holder{
+	background-color:  #2b1266 !important;	
+}

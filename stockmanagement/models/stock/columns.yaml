@@ -1,0 +1,39 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: true
+        sortable: false
+    item_id:
+        label: item_id
+        type: number
+        invisible: true
+    name:
+        label: name
+        relation: item
+        select: name
+        searchable: true
+    quantity:
+        label: quantity
+        type: partial
+        path: $/arkylus/stockmanagement/models/stock/_quantity.htm
+        sortable: false
+        clickable: false
+    op_type:
+        label: 'arkylus.stockmanagement::lang.stocks.op_type'
+        type: partial
+        path: $/arkylus/stockmanagement/models/stock/_op_type.htm
+        clickable: false
+        sortable: false
+    created_at:
+        label: 'arkylus.stockmanagement::lang.item.created_at'
+        type: timetense
+        searchable: true
+        sortable: false
+        ignoreTimezone: true
+    updated_at:
+        label: updated_at
+        type: timetense        
+        searchable: true
+        sortable: false
+        ignoreTimezone: true

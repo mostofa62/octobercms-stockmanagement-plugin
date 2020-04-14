@@ -1,0 +1,39 @@
+<?= Block::put('head') ?><?= Block::endPut() ?>
+<?= Block::put('body') ?>
+
+
+<div class="w-full p-a">
+<div class="scoreboard summary-top p-a-md m-t-10">
+    <div data-control="toolbar">
+    	<div class="scoreboard-item control-chart" data-control="chart-pie">
+            <ul>                
+                <li data-color="#12a01f"><?= Lang::get('arkylus.stockmanagement::lang.util.active_items') ?> <span><?= $totalActiveItems ?></span></li>
+                <li data-color="#cc3300"><?= Lang::get('arkylus.stockmanagement::lang.util.inactive_items') ?> <span><?= $totalInactiveItems ?></span></li>
+            </ul>
+        </div>
+        <div class="scoreboard-item title-value">
+            <h4><?= Lang::get('arkylus.stockmanagement::lang.util.total_items') ?></h4>
+            <p><?= $totalItems ?></p>
+            
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4><?= Lang::get('arkylus.stockmanagement::lang.util.active_items') ?></h4>
+            <p><?= $totalActiveItems ?></p>
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4><?= Lang::get('arkylus.stockmanagement::lang.util.inactive_items') ?></h4>
+            <p><?= $totalInactiveItems ?></p>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+	
+   
+<?= Block::endPut() ?>
+
+

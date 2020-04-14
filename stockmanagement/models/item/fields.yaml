@@ -1,0 +1,16 @@
+fields:
+    name:
+        label: 'arkylus.stockmanagement::lang.item.name'
+        span: auto
+        placeholder: 'Provide item name'
+        required: 1
+        type: text
+    description:
+        label: 'arkylus.stockmanagement::lang.item.description'
+        size: ''
+        span: auto
+        type: textarea
+    status:
+        label: 'arkylus.stockmanagement::lang.item.status'
+        span: auto
+        type: switch

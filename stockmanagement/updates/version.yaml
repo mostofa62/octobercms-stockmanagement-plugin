@@ -1,0 +1,11 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table arkylus_stockmanagement_items'
+    - builder_table_create_arkylus_stockmanagement_items.php
+1.0.3:
+    - 'Created table arkylus_stockmanagement_stocks'
+    - builder_table_create_arkylus_stockmanagement_stocks.php
+1.0.4:
+    - 'Created table arkylus_stockmanagement_stock_balances'
+    - builder_table_create_arkylus_stockmanagement_stock_balances.php

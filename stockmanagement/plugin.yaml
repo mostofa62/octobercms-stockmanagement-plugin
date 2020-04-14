@@ -1,0 +1,36 @@
+plugin:
+    name: 'arkylus.stockmanagement::lang.plugin.name'
+    description: 'arkylus.stockmanagement::lang.plugin.description'
+    author: Arkylus
+    icon: oc-icon-bar-chart
+    homepage: 'http://stockmanagement.arkylus.com'
+permissions:
+    arkylus.stockmanagement.manage_item:
+        tab: 'arkylus.stockmanagement::lang.plugin.name'
+        label: 'arkylus.stockmanagement::lang.item.manage'
+    arkylus.stockmanagement.dashboard:
+        tab: 'arkylus.stockmanagement::lang.plugin.dashboard'
+        label: 'arkylus.stockmanagement::lang.plugin.dashboard'
+    arkylus.stockmanagement.stock_in_out:
+        tab: 'arkylus.stockmanagement::lang.plugin.stock_in_out'
+        label: 'arkylus.stockmanagement::lang.plugin.stock_in_out'
+navigation:
+    dashboard:
+        label: 'arkylus.stockmanagement::lang.plugin.name'
+        url: arkylus/stockmanagement/dashboard
+        icon: icon-bar-chart
+        permissions:
+            - arkylus.stockmanagement.dashboard
+        sideMenu:
+            items:
+                label: 'arkylus.stockmanagement::lang.plugin.items'
+                url: arkylus/stockmanagement/items
+                icon: icon-list
+                permissions:
+                    - arkylus.stockmanagement.manage_item
+            stock_in_out:
+                label: 'arkylus.stockmanagement::lang.plugin.stockinout'
+                url: arkylus/stockmanagement/stock
+                icon: icon-database
+                permissions:
+                    - arkylus.stockmanagement.stock_in_out
