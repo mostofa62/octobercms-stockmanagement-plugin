@@ -49,8 +49,19 @@ class Items extends Controller
             'msg'=> Lang::get('arkylus.stockmanagement::lang.message.noinputstockmessage'),
             'result'=>3,            
         ];
+        $rules = [
+            
+                'item' => 'required|numeric',
+                'quantity' => 'required|numeric|min:1',
+                'optype' => 'required|numeric',
+            
+        ];
+
+        $validator = \Validator::make(\Input::all(), $rules);
         
-        if(input('item') && input('quantity') && input('optype')){
+
+        
+        if(!$validator->fails()){
 
 
             $item = input('item');
@@ -115,7 +126,7 @@ class Items extends Controller
 
             }
         }
-
+        
 
 
         return $return;

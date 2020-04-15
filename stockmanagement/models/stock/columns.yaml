@@ -37,3 +37,10 @@ columns:
         searchable: true
         sortable: false
         ignoreTimezone: true
+    action_buttons:
+        label: 'arkylus.stockmanagement::lang.label.action_buttons'
+        type: partial
+        path: $/arkylus/stockmanagement/models/stock/_action_buttons.htm
+        searchable: false
+        sortable: false
+

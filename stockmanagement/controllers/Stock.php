@@ -16,6 +16,7 @@ class Stock extends Controller
         'arkylus.stockmanagement.stock_in_out' 
     ];
 
+
     public function __construct()
     {
         parent::__construct();
@@ -43,8 +44,16 @@ class Stock extends Controller
             'msg'=> Lang::get('arkylus.stockmanagement::lang.message.noinputstockmessageqty'),
             'result'=>3,            
         ];
+        $rules = [
+           
+            'id' => 'required|numeric',
+            'quantity' => 'required|numeric|min:1',
+            
+        ];
 
-        if(input('id') && input('quantity')){
+        $validator = \Validator::make(\Input::all(), $rules);
+
+        if(!$validator->fails()){
 
             $id = input('id');
             $quantity = input('quantity');
@@ -107,4 +116,67 @@ class Stock extends Controller
         return $return;
 
     }
+
+    //delete history
+    public function onStockInOutDelete(){
+
+        $return = [ 
+            'msg'=> Lang::get('arkylus.stockmanagement::lang.message.itemnotfound'),
+            'result'=>3,            
+        ];
+
+        
+        $id = input('id');
+        $stock = DB::table('arkylus_stockmanagement_stocks')->select('item_id','quantity','op_type')->where('id', $id)
+        ->first();
+
+        if(isset($stock)){
+           
+
+            $item  = $stock->item_id;
+            $quantity = $stock->quantity;
+            $optype = $stock->op_type;      
+            //first check balaance from stock_balance table
+            $stock_balance = DB::table('arkylus_stockmanagement_stock_balances')
+            ->select('balance_quantity')
+            ->where('item_id', $item)
+            ->first();
+
+            $balance = isset($stock_balance)?$stock_balance->balance_quantity:0;
+            if(($balance-$quantity) < 0 && $optype == 1){
+                    $return['msg'] = Lang::get('arkylus.stockmanagement::lang.message.itemnotavailable');
+                    $return['result'] = 2;
+            }else{
+
+                $balance = $optype == 1 ? $balance - $quantity : $balance + $quantity;
+                DB::beginTransaction();
+                try{
+                    
+                    DB::table('arkylus_stockmanagement_stocks')->where('id', $id)->delete();            
+                                    
+                    DB::table('arkylus_stockmanagement_stock_balances')
+                    ->where('item_id', $item)
+                    ->update(['balance_quantity' => $balance,'op_type'=>$optype, 'updated_at' => Carbon::now()]);
+
+                    
+
+                    DB::commit();
+                    //$return['msg'] =  sprintf("(%d) $msg",$quantity);
+                    //$return['result'] = 1;
+                    return $this->listRefresh();
+
+
+                }catch(Exception $e){
+                    DB::rollBack();
+                    $return['msg'] =   Lang::get('arkylus.stockmanagement::lang.message.itemstcokedrollback');
+                    $return['result'] = 0;
+                }
+            }
+
+        }
+
+        return $return;
+        
+    }
+
 }

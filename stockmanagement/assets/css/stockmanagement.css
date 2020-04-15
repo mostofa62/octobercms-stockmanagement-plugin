@@ -12,3 +12,5 @@
 .item-stock-holder{
 	background-color:  #2b1266 !important;	
 }
+
+table.table.data tbody tr.rowlink:not(.nolink):hover td{color:#2a3e51 !important}

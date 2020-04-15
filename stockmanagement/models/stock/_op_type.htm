@@ -1,3 +1,3 @@
 <span class="<?= $record->op_type == 1 ? 'oc-icon-circle text-success':'oc-icon-circle text-danger' ?>">
-<?= Lang::get(\Arkylus\Stockmanagement\Classes\Util::op_type($record->op_type)) ?>
+<?= e(trans(\Arkylus\Stockmanagement\Classes\Util::op_type($record->op_type))) ?>
 </span>

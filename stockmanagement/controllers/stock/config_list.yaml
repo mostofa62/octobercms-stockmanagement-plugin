@@ -3,8 +3,8 @@ modelClass: Arkylus\Stockmanagement\Models\Stock
 list: $/arkylus/stockmanagement/models/stock/columns.yaml
 noRecordsMessage: 'backend::lang.list.no_records'
 recordsPerPage: '30'
-showSetup: true
-showCheckboxes: true
+showSetup: false
+showCheckboxes: false
 toolbar:
     buttons: list_toolbar
     search:

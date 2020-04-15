@@ -46,6 +46,26 @@ function stock_in_out_adjust(id) {
 	
 }
 
+function stock_in_out_delete(id){
+	data = {
+		'id':id			
+	};
+	dltbtn = $('#dltbtn'+id);
+
+	$.request('onStockInOutDelete', {
+		data :data,
+        success: function(info) {
+
+        	                    
+            
+            
+        }
+    }); 
+
+	
+
+}
+
 function notify_for_stock(el,data, notify_pos = 'left'){
 		cssclass = 'error';
 		switch(data.result){

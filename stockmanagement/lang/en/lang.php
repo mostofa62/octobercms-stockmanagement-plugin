@@ -33,15 +33,19 @@
     'label'=>[
         'stock_balance'=>'Balance',
         'from_stock_balance'=>'From Balance',
+        'action_buttons'=>'Actions',
+        'action_delete'=>'Remove',
     ],
     'message'=>[
-        'noinputstockmessage'=>'Please provide Quantity and Opearation-Type',
-        'noinputstockmessageqty'=>'Please provide Quantity',
+        'noinputstockmessage'=>'Please provide Quantity greated then 0 and Opearation-Type',
+        'noinputstockmessageqty'=>'Please provide Quantity greated then 0',
         'itemnotavailable'=>'Item is not Available / Out of Balance',
         'itemstcokedsuccefully'=>'Item is added to stock',
         'itemdeductedsuccefully'=>'Item is removed from stock',
         'itemstcokedrollback'=>'Item does not added to stock',
         'activateitemforstock'=>'Active this item to Entry Stock',
+        'itemnotfound'=>'Item not found',
+        'action_delete_sure'=>'Are you sure want to remote this?',
 
     ]
 ];

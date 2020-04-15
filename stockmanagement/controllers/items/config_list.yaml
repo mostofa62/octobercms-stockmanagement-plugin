@@ -4,7 +4,7 @@ list: $/arkylus/stockmanagement/models/item/columns.yaml
 recordUrl: 'arkylus/stockmanagement/items/update/:id'
 noRecordsMessage: 'backend::lang.list.no_records'
 recordsPerPage: 20
-showSetup: true
+showSetup: false
 showCheckboxes: true
 toolbar:
     buttons: list_toolbar

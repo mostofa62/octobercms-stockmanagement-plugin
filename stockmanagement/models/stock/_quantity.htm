@@ -2,10 +2,10 @@
         <input  id="quantity<?= $record->id ?>" type="number" min="1" name="quantity" value="<?= $record->quantity ?>" class="form-control" />
         <div class="p-a">
 	        <button id="stkbtn<?= $record->id ?>" class="btn btn-default" type="button" onclick="stock_in_out_adjust(<?= $record->id ?>)">
-			<?= Lang::get('arkylus.stockmanagement::lang.util.stock_in_out_save') ?>
+			<?= e(trans('arkylus.stockmanagement::lang.util.stock_in_out_save')) ?>
 			</button>
 			<span id="blnc<?= $record->id ?>" class="p-l-5">
-				<?= Lang::get('arkylus.stockmanagement::lang.label.from_stock_balance') ?>
+				<?= e(trans('arkylus.stockmanagement::lang.label.from_stock_balance')) ?>
 				<strong class="info"><?= isset($record->item->stock_balance)? $record->item->stock_balance->balance_quantity:0 ?></strong>
 			</span>
 		</div>
