@@ -13,6 +13,7 @@
         'status' => 'Status',
         'manage' => 'Manage Item',
         'created_at' => 'Entry Date',
+        'updated_at' =>'Modified Date',
     ],
     'stocks' => [
         'quantity' => 'Quantity',
@@ -35,6 +36,8 @@
         'from_stock_balance'=>'From Balance',
         'action_buttons'=>'Actions',
         'action_delete'=>'Remove',
+        'item_trashed'=>'Trashed Items',
+        'item_restore'=>'Restore Selected',
     ],
     'message'=>[
         'noinputstockmessage'=>'Please provide Quantity greated then 0 and Opearation-Type',
@@ -46,6 +49,8 @@
         'activateitemforstock'=>'Active this item to Entry Stock',
         'itemnotfound'=>'Item not found',
         'action_delete_sure'=>'Are you sure want to remote this?',
+        'restore'=>'Restored successfully',
+        'delete'=>'Deleted parmanently'
 
     ]
 ];

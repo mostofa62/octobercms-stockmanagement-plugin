@@ -5,12 +5,16 @@ use BackendMenu;
 use Lang;
 use DB;
 use Carbon\Carbon;
+use Arkylus\Stockmanagement\Models\Item;
 
 class Items extends Controller
 {
     public $implement = [        'Backend\Behaviors\ListController',        'Backend\Behaviors\FormController'    ];
     
-    public $listConfig = 'config_list.yaml';
+    public $listConfig = [
+        'list'=>'config_list.yaml',
+        'trashed' => 'config_list_trashed.yaml'
+    ];
     public $formConfig = 'config_form.yaml';
 
     public $requiredPermissions = [
@@ -37,10 +41,65 @@ class Items extends Controller
         $this->addJs('/plugins/arkylus/stockmanagement/assets/js/stockmanagement.js', 'Arkylus.Stockmanagement');
         
         //$this->makeAssets();
-
+        $this->vars['index_action'] = true;
         // Call the ListController behavior index() method
         $this->asExtension('ListController')->index();
     }
+
+    public function trashed() {
+        $this->pageTitle = trans('arkylus.stockmanagement::lang.label.item_trashed');
+        //$this->bodyClass = 'slim-container';
+        
+        $this->makeLists();
+    }
+
+    public function onRestore() {
+        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
+          $restored = [];
+          foreach ($checkedIds as $itemId) {
+            // Thanks @alxy
+            if (!$item = Item::onlyTrashed()->where('id', $itemId)) {
+              continue;
+            }
+            $restored[$itemId] = $item->restore();
+          }
+          \Flash::success(trans('arkylus.stockmanagement::lang.message.restore'));
+        }
+        return $this->listRefresh('trashed');
+    }
+    /* Parmanent Delete */
+    /*
+    public function onDelete()
+    {
+        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
+          foreach ($checkedIds as $itemId) {
+            // Thanks @alxy
+            if (!$item = Item::onlyTrashed()->where('id', $itemId)) {
+              continue;
+            }
+            $item->forceDelete();
+          }
+          \Flash::success(trans('arkylus.stockmanagement::lang.message.delete'));
+        }
+        return $this->listRefresh('trashed');
+    }
+    */
+
+    
+
+    public function listExtendQuery($query, $definition)
+    {
+       
+       if ($definition == 'trashed')
+       {
+           $query->onlyTrashed();
+       }
+    }
+    /*
+    public function formExtendQuery($query)
+    {
+        $query->withTrashed();
+    }*/
 
     public function onStockInOut()
     {

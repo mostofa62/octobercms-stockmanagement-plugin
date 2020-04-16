@@ -1,0 +1,9 @@
+scopes:
+  created_at:
+        label: 'arkylus.stockmanagement::lang.item.created_at'
+        type: date
+        conditions: created_at >= ':filtered'
+  updated_at:
+        label: 'arkylus.stockmanagement::lang.item.updated_at'
+        type: date
+        conditions: updated_at >= ':filtered'  

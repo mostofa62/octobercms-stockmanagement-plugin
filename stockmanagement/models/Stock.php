@@ -24,4 +24,8 @@ class Stock extends Model
     public $belongsTo = [
         'item' => 'Arkylus\Stockmanagement\Models\Item'
     ];
+
+    public function getOpType(){
+        return \Arkylus\Stockmanagement\Classes\Util::op_type();
+    }
 }
