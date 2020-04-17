@@ -27,6 +27,7 @@ class Dashboard extends Controller
     {
     	
     	$this->addCss('/plugins/arkylus/stockmanagement/assets/css/stockmanagement.css', 'Arkylus.Stockmanagement');
+        
     	//$this->addJs('/plugins/arkylus/stockmanagement/assets/lib/chartjs/Chart.min.js', 'Arkylus.Stockmanagement');
 
     	$totalItems = DB::table('arkylus_stockmanagement_items')->count();
@@ -40,15 +41,29 @@ class Dashboard extends Controller
     	$this->vars['totalActiveItems'] = $totalActiveItems;
     	$this->vars['totalInactiveItems'] = $totalInactiveItems;
 
+        $high_stock = DB::table('arkylus_stockmanagement_stock_balances')
+            ->select('balance_quantity','name')
+            ->join('arkylus_stockmanagement_items', function ($join) {
+                $join->on('arkylus_stockmanagement_items.id', '=', 'arkylus_stockmanagement_stock_balances.item_id');                 
+            })->orderBy('balance_quantity', 'desc')->limit(3)->get()->toArray();
+
+        
+        $low_stock = array_reverse(DB::table('arkylus_stockmanagement_stock_balances')
+            ->select('balance_quantity','name')
+            ->join('arkylus_stockmanagement_items', function ($join) {
+                $join->on('arkylus_stockmanagement_items.id', '=', 'arkylus_stockmanagement_stock_balances.item_id');                 
+            })->orderBy('balance_quantity', 'asc')->limit(3)->get()->toArray());
+
+        $total_hls =   array_merge($high_stock,$low_stock);
+        $this->vars['total_hls'] = $total_hls;
+        
+        //dd($total_hl);
+
     }
 
-    public function stockinout(){
+    
 
-    	///$users = Db::table('items')->simplePaginate(15);
-    	//$url = \Backend::url('arkylus/stockmanagement/dashboard/onStockInOut');
-    	//dd($url);
-
-    }
+    
 
     
 

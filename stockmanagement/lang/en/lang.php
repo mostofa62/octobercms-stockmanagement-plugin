@@ -38,6 +38,7 @@
         'action_delete'=>'Remove',
         'item_trashed'=>'Trashed Items',
         'item_restore'=>'Restore Selected',
+        'high_low_stock'=>'High to Low Stock Items',        
     ],
     'message'=>[
         'noinputstockmessage'=>'Please provide Quantity greated then 0 and Opearation-Type',

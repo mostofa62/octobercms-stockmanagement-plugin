@@ -31,7 +31,39 @@
 </div>
 
 
+<div class="w-full p-x">
+<div class="summary-top">
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="2" style="text-align: center;">
+                    <span><?= e(trans('arkylus.stockmanagement::lang.label.high_low_stock')) ?>
+                    
+                </span>
+                </th>
+                                
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
 
+    <div
+    class="control-chart wrap-legend summary-top w-sm p-a m-x-auto"
+    data-control="chart-bar"
+    data-height="100"
+    data-full-width="1">
+    <ul>
+        <?php foreach($total_hls as $total_hl): ?>
+            <li><?=  $total_hl->name ?> <span><?=  $total_hl->balance_quantity ?></span></li>
+        <?php endforeach; ?>
+    </ul>
+    </div>
+    
+</div>
+
+</div>
 	
    
 <?= Block::endPut() ?>

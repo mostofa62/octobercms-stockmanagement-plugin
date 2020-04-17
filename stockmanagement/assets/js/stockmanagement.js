@@ -1,3 +1,9 @@
+//add capabilty of on load to all jquery
+$.each ($("[onload]"), function (index, item) {
+        $(item).prop ("onload").call (item);
+        return false;
+});
+
 //stock in out saving function
 function stock_in_out_save(id){
 	data = {
@@ -91,3 +97,4 @@ function notify_for_stock(el,data, notify_pos = 'left'){
 function isset(object){
     return (typeof object !=='undefined');
 }
+
