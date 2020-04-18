@@ -30,7 +30,7 @@
 </div>
 </div>
 
-
+<?php if(!empty($total_hls)): ?>
 <div class="w-full p-x">
 <div class="summary-top">
     <table class="table">
@@ -62,8 +62,8 @@
     </div>
     
 </div>
-
 </div>
+<?php  endif; ?>
 	
    
 <?= Block::endPut() ?>

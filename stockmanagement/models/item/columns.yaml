@@ -5,9 +5,22 @@ columns:
         sortable: true
         invisible: true
     name:
-        label: name
+        label: 'arkylus.stockmanagement::lang.item.name'
         type: text
         searchable: true
+    sku_unit:
+        label: 'arkylus.stockmanagement::lang.item.sku'
+        type: text
+        searchable: true
+        sortable: false
+    photo:
+        label: 'arkylus.stockmanagement::lang.item.photo'
+        type: partial
+        path: $/arkylus/stockmanagement/models/item/_photo.htm
+        clickable: false
+        sortable: false
+        searchable : false
+
     description:
         label: description
         type: text

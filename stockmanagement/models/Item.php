@@ -24,11 +24,22 @@ class Item extends Model
      */
     public $rules = [
         'name' => 'required',
+        'unit'=> 'required',
+        'sku_unit'=>'unique:arkylus_stockmanagement_items',
     ];
 
     public $hasOne = [
         'stock_balance' => 'Arkylus\Stockmanagement\Models\StockBalance'
     ];
+
+    public $attachOne = [
+        'photo'=> 'System\Models\File'
+    ];
+
+    public function listUnits($fieldName, $value, $formData)
+    {
+        return \Arkylus\Stockmanagement\Classes\Util::item_unit();
+    }
 
     
 }

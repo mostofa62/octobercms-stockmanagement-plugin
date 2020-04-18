@@ -9,3 +9,9 @@
 1.0.4:
     - 'Created table arkylus_stockmanagement_stock_balances'
     - builder_table_create_arkylus_stockmanagement_stock_balances.php
+1.0.5:
+    - 'Created table arkylus_stockmanagement_items'
+    - builder_table_create_arkylus_stockmanagement_items_2.php
+1.0.6:
+    - 'Updated table arkylus_stockmanagement_items'
+    - builder_table_update_arkylus_stockmanagement_items.php

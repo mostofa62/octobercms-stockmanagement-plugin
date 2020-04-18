@@ -14,3 +14,24 @@ fields:
         label: 'arkylus.stockmanagement::lang.item.status'
         span: auto
         type: switch
+    unit:
+        label: 'arkylus.stockmanagement::lang.item.unit'
+        showSearch: true
+        span: auto
+        type: dropdown
+        options: listUnits
+    photo:
+        label: 'arkylus.stockmanagement::lang.item.photo'
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    sku_unit:
+        label: 'arkylus.stockmanagement::lang.item.sku'
+        span: auto
+        type: text

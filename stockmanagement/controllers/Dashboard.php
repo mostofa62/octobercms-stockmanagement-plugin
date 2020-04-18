@@ -41,18 +41,21 @@ class Dashboard extends Controller
     	$this->vars['totalActiveItems'] = $totalActiveItems;
     	$this->vars['totalInactiveItems'] = $totalInactiveItems;
 
+        //High to Low Stock Items
+        $htol_maxItems = \Config::get('arkylus.stockmanagement::high_to_low_maxItems', 2);
+
         $high_stock = DB::table('arkylus_stockmanagement_stock_balances')
             ->select('balance_quantity','name')
             ->join('arkylus_stockmanagement_items', function ($join) {
                 $join->on('arkylus_stockmanagement_items.id', '=', 'arkylus_stockmanagement_stock_balances.item_id');                 
-            })->orderBy('balance_quantity', 'desc')->limit(3)->get()->toArray();
+            })->orderBy('balance_quantity', 'desc')->limit($htol_maxItems)->get()->toArray();
 
         
         $low_stock = array_reverse(DB::table('arkylus_stockmanagement_stock_balances')
             ->select('balance_quantity','name')
             ->join('arkylus_stockmanagement_items', function ($join) {
                 $join->on('arkylus_stockmanagement_items.id', '=', 'arkylus_stockmanagement_stock_balances.item_id');                 
-            })->orderBy('balance_quantity', 'asc')->limit(3)->get()->toArray());
+            })->orderBy('balance_quantity', 'asc')->limit($htol_maxItems)->get()->toArray());
 
         $total_hls =   array_merge($high_stock,$low_stock);
         $this->vars['total_hls'] = $total_hls;

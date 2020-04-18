@@ -9,7 +9,7 @@
             <?= e(trans('arkylus.stockmanagement::lang.stocks.op_type')) ?>
         </label>
 
-        <select id="op_type<?= $record->id ?>" name="op_type" class="form-control custom-select">
+        <select id="op_type<?= $record->id ?>" name="op_type" class="form-control">
         	<option value=""><?= e(trans('arkylus.stockmanagement::lang.util.op_in_out')) ?></option>
         	<?php foreach(\Arkylus\Stockmanagement\Classes\Util::op_type() as $k=>$v ): ?>            
             <option value="<?= $k ?>"><?= e(trans($v)) ?></option>
@@ -19,9 +19,10 @@
 <div class="form-group span-left text-left">
     <label><?= e(trans('arkylus.stockmanagement::lang.label.stock_balance')) ?></label>
     <span id="blnc<?= $record->id ?>"><strong class="info"><?= isset($record->stock_balance)? $record->stock_balance->balance_quantity:0 ?></strong></span>
+    <span id="unit" class="info"><i><?= \Arkylus\Stockmanagement\Classes\Util::item_unit($record->unit) ?></i></span>
 </div>
 <div class="form-group span-right text-right">
-	<button id="stkbtn<?= $record->id ?>" class="btn btn-default" type="button" onclick="stock_in_out_save(<?= $record->id ?>)">
+	<button id="stkbtn<?= $record->id ?>" class="btn btn-success" type="button" onclick="stock_in_out_save(<?= $record->id ?>)">
 		<?= e(trans('arkylus.stockmanagement::lang.util.stock_in_out_save')) ?>
 			
 	</button>
