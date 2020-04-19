@@ -26,9 +26,31 @@ class Items extends Controller
         parent::__construct();
         
         //BackendMenu::setContext('Arkylus.Stockmanagement', 'items');
-        BackendMenu::setContext('Arkylus.Stockmanagement', 'dashboard');
+        BackendMenu::setContext('Arkylus.Stockmanagement', 'dashboard','items');
 
     }
+
+    public function listExtendQuery($query, $definition)
+    {
+       
+       if ($definition == 'trashed')
+       {
+           $query->onlyTrashed();
+       }
+    }
+
+    // added due to hover problem
+    public function listInjectRowClass($record, $value)
+    {
+        //if ($record->trashed()) {
+            return 'nolink';
+        //}
+    }
+    /*
+    public function formExtendQuery($query)
+    {
+        $query->withTrashed();
+    }*/
 
     public function index()
     {
@@ -87,19 +109,7 @@ class Items extends Controller
 
     
 
-    public function listExtendQuery($query, $definition)
-    {
-       
-       if ($definition == 'trashed')
-       {
-           $query->onlyTrashed();
-       }
-    }
-    /*
-    public function formExtendQuery($query)
-    {
-        $query->withTrashed();
-    }*/
+
 
     public function onStockInOut()
     {

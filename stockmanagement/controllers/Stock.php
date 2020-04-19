@@ -22,6 +22,26 @@ class Stock extends Controller
         parent::__construct();
         BackendMenu::setContext('Arkylus.Stockmanagement', 'dashboard', 'stock_in_out');
     }
+    
+    public function listExtendQueryBefore($query)
+    {
+        $query->join('arkylus_stockmanagement_items', function ($join) {
+            $join->on('arkylus_stockmanagement_items.id', '=', 'arkylus_stockmanagement_stocks.item_id')
+            ->where('arkylus_stockmanagement_items.deleted_at',null);
+        });
+           
+
+    }
+    /*
+    public function listExtendQuery($query, $definition)
+    {
+       
+       
+           $query
+           ->join('arkylus_stockmanagement_items','arkylus_stockmanagement_items.id','=','arkylus_stockmanagement_stocks.item_id')
+           ->where('arkylus_stockmanagement_items.deleted_at',null);
+       
+    }*/
 
     public function index()
     {

@@ -1,5 +1,5 @@
 <?php if($record->status == 1): ?>
-<div class="item-stock-holder">
+
 <div class="form-group span-left">
         <label><?= e(trans('arkylus.stockmanagement::lang.stocks.quantity')) ?></label>
         <input id="quantity<?= $record->id ?>" type="number" min="1" name="quantity" value="" class="form-control" />
@@ -27,7 +27,8 @@
 			
 	</button>
 </div>
-</div>
+
+
 <?php else: ?>
 <span class="flash-message static info">
     <?= e(trans('arkylus.stockmanagement::lang.message.activateitemforstock')) ?>

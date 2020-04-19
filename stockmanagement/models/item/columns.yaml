@@ -4,6 +4,13 @@ columns:
         type: number
         sortable: true
         invisible: true
+    photo:
+        label: 'arkylus.stockmanagement::lang.item.photo'
+        type: partial
+        path: $/arkylus/stockmanagement/models/item/_photo.htm
+        clickable: false
+        sortable: false
+        searchable : false
     name:
         label: 'arkylus.stockmanagement::lang.item.name'
         type: text
@@ -13,13 +20,7 @@ columns:
         type: text
         searchable: true
         sortable: false
-    photo:
-        label: 'arkylus.stockmanagement::lang.item.photo'
-        type: partial
-        path: $/arkylus/stockmanagement/models/item/_photo.htm
-        clickable: false
-        sortable: false
-        searchable : false
+    
 
     description:
         label: description
@@ -36,7 +37,7 @@ columns:
         sortable: true
         clickable: false
     updated_at:
-        label: updated_at
+        label: 'arkylus.stockmanagement::lang.item.updated_at'
         type: datetime
         invisible: true
     deleted_at:
@@ -44,7 +45,7 @@ columns:
         type: datetime
         invisible: true
     stock_in_out:
-        label: 'arkylus.stockmanagement::lang.util.stock_action'
+        label: 'arkylus.stockmanagement::lang.label.stock_action'
         type: partial
         path: $/arkylus/stockmanagement/models/item/_stock_in_out.htm
         clickable: false

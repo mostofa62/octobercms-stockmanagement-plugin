@@ -1,3 +1,9 @@
+<div class="form-group span-left">
+<a href="<?= Backend::url('arkylus/stockmanagement/items/update', $record->id) ?>" class="btn btn-default btn-sm m-y oc-icon-edit"><?= e(trans('arkylus.stockmanagement::lang.label.edit')) ?></a>
+</div>
+
 <?php if(isset($record->photo)): ?>
+<div class="form-group span-right">
 <img src="<?= $record->photo->getThumb(100, 'auto'); ?>">
+</div>
 <?php endif; ?>

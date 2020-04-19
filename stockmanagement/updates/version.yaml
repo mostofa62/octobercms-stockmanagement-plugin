@@ -15,3 +15,9 @@
 1.0.6:
     - 'Updated table arkylus_stockmanagement_items'
     - builder_table_update_arkylus_stockmanagement_items.php
+1.0.7:
+    - 'Updated table arkylus_stockmanagement_items'
+    - builder_table_update_arkylus_stockmanagement_items_2.php
+1.0.8:
+    - 'Updated table arkylus_stockmanagement_items'
+    - builder_table_update_arkylus_stockmanagement_items_3.php

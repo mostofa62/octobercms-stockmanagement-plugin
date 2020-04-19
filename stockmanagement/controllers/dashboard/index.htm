@@ -7,24 +7,28 @@
     <div data-control="toolbar">
     	<div class="scoreboard-item control-chart" data-control="chart-pie">
             <ul>                
-                <li data-color="#12a01f"><?= Lang::get('arkylus.stockmanagement::lang.util.active_items') ?> <span><?= $totalActiveItems ?></span></li>
-                <li data-color="#cc3300"><?= Lang::get('arkylus.stockmanagement::lang.util.inactive_items') ?> <span><?= $totalInactiveItems ?></span></li>
+                <li data-color="#12a01f"><?= Lang::get('arkylus.stockmanagement::lang.label.active_items') ?> <span><?= $totalActiveItems ?></span></li>
+                <li data-color="#cc3300"><?= Lang::get('arkylus.stockmanagement::lang.label.inactive_items') ?> <span><?= $totalInactiveItems ?></span></li>
             </ul>
         </div>
         <div class="scoreboard-item title-value">
-            <h4><?= Lang::get('arkylus.stockmanagement::lang.util.total_items') ?></h4>
+            <h4><?= Lang::get('arkylus.stockmanagement::lang.label.total_items') ?></h4>
             <p><?= $totalItems ?></p>
             
         </div>
 
         <div class="scoreboard-item title-value">
-            <h4><?= Lang::get('arkylus.stockmanagement::lang.util.active_items') ?></h4>
+            <h4><?= Lang::get('arkylus.stockmanagement::lang.label.active_items') ?></h4>
             <p><?= $totalActiveItems ?></p>
         </div>
 
         <div class="scoreboard-item title-value">
-            <h4><?= Lang::get('arkylus.stockmanagement::lang.util.inactive_items') ?></h4>
+            <h4><?= Lang::get('arkylus.stockmanagement::lang.label.inactive_items') ?></h4>
             <p><?= $totalInactiveItems ?></p>
+        </div>
+        <div class="scoreboard-item title-value">
+            <h4><?= Lang::get('arkylus.stockmanagement::lang.label.item_trashed') ?></h4>
+            <p><?= $totalTrashItems ?></p>
         </div>
     </div>
 </div>
@@ -50,10 +54,10 @@
     </table>
 
     <div
-    class="control-chart wrap-legend summary-top w-sm p-a m-x-auto"
+    class="control-chart wrap-legend summary-top w-full p-a m-x-auto"
     data-control="chart-bar"
-    data-height="100"
-    data-full-width="1">
+    data-height="200"    
+    data-full-width="0">
     <ul>
         <?php foreach($total_hls as $total_hl): ?>
             <li><?=  $total_hl->name ?> <span><?=  $total_hl->balance_quantity ?></span></li>
