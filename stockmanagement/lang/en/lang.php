@@ -4,8 +4,8 @@
         'description' => 'A Simple Stock Management',
         'dashboard' => 'Dashboard',
         'items' => 'Items',
-        'stockinout' => 'Adjustment',
-        'stock_in_out' => 'Stock-In-Out',
+        'adjustment' => 'Adjustment',
+        'admin' => 'Admin',
     ],
     'item' => [
         'name' => 'Name',
@@ -24,15 +24,13 @@
         'created_at' => 'Entry Date',
         'updated_at' => 'Modified Date',
     ],
-    'util' => [        
-        
+    'util' => [
         'op_in_out' => 'Select Opearation-Type',
         'op_in' => 'In',
         'op_out' => 'Out',
         'stock_in_out_save' => 'Store',
     ],
     'label' => [
-        //dashboard index
         'active' => 'Active',
         'inactive' => 'Inactive',
         'total_items' => 'Total Items',
@@ -40,19 +38,13 @@
         'inactive_items' => 'Inactive Items',
         'high_low_stock' => 'High to Low Stock Items',
         'stock_action' => 'Stock Related Action',
-        'edit'=>'Edit',
-        //in item list 
+        'edit' => 'Edit',
         'stock_balance' => 'Balance',
         'item_trashed' => 'Trashed Items',
         'item_restore' => 'Restore Selected',
-        //in stock list
         'from_stock_balance' => 'From Balance',
         'action_buttons' => 'Actions',
         'action_delete' => 'Remove',
-        
-        
-        
-        
     ],
     'message' => [
         'noinputstockmessage' => 'Please provide Quantity greated then 0 and Opearation-Type',

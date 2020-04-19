@@ -13,14 +13,14 @@ class Stock extends Controller
     public $listConfig = 'config_list.yaml';
 
     public $requiredPermissions = [
-        'arkylus.stockmanagement.stock_in_out' 
+        'arkylus.stockmanagement.adjustment',       
     ];
 
 
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('Arkylus.Stockmanagement', 'dashboard', 'stock_in_out');
+        BackendMenu::setContext('Arkylus.Stockmanagement', 'dashboard', 'adjustment');
     }
     
     public function listExtendQueryBefore($query)

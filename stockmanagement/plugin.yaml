@@ -9,11 +9,14 @@ permissions:
         tab: 'arkylus.stockmanagement::lang.plugin.name'
         label: 'arkylus.stockmanagement::lang.item.manage'
     arkylus.stockmanagement.dashboard:
-        tab: 'arkylus.stockmanagement::lang.plugin.dashboard'
+        tab: 'arkylus.stockmanagement::lang.plugin.name'
         label: 'arkylus.stockmanagement::lang.plugin.dashboard'
-    arkylus.stockmanagement.stock_in_out:
-        tab: 'arkylus.stockmanagement::lang.plugin.stock_in_out'
-        label: 'arkylus.stockmanagement::lang.plugin.stock_in_out'
+    arkylus.stockmanagement.adjustment:
+        tab: 'arkylus.stockmanagement::lang.plugin.name'
+        label: 'arkylus.stockmanagement::lang.plugin.adjustment'
+    'arkylus.stockmanagement.*':
+        tab: 'arkylus.stockmanagement::lang.plugin.name'
+        label: 'arkylus.stockmanagement::lang.plugin.admin'
 navigation:
     dashboard:
         label: 'arkylus.stockmanagement::lang.plugin.name'
@@ -28,9 +31,9 @@ navigation:
                 icon: icon-list
                 permissions:
                     - arkylus.stockmanagement.manage_item
-            stock_in_out:
-                label: 'arkylus.stockmanagement::lang.plugin.stockinout'
+            adjustment:
+                label: 'arkylus.stockmanagement::lang.plugin.adjustment'
                 url: arkylus/stockmanagement/stock
                 icon: icon-database
                 permissions:
-                    - arkylus.stockmanagement.stock_in_out
+                    - arkylus.stockmanagement.adjustment

@@ -9,7 +9,7 @@ class Dashboard extends Controller
     public $implement = [    ];
     
     public $requiredPermissions = [
-        'arkylus.stockmanagement.dashboard' 
+        'arkylus.stockmanagement.dashboard',    
     ];
 
     public function __construct()

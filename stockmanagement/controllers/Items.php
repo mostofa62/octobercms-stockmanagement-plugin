@@ -18,7 +18,7 @@ class Items extends Controller
     public $formConfig = 'config_form.yaml';
 
     public $requiredPermissions = [
-        'arkylus.stockmanagement.manage_item' 
+        'arkylus.stockmanagement.manage_item',        
     ];
 
     public function __construct()
