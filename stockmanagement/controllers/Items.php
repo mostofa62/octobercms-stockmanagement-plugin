@@ -18,7 +18,8 @@ class Items extends Controller
     public $formConfig = 'config_form.yaml';
 
     public $requiredPermissions = [
-        'arkylus.stockmanagement.manage_item',        
+        'arkylus.stockmanagement.manage_item',
+        'arkylus.stockmanagement.manage_stock'        
     ];
 
     public function __construct()
@@ -29,15 +30,47 @@ class Items extends Controller
         BackendMenu::setContext('Arkylus.Stockmanagement', 'dashboard','items');
 
     }
+    
+    public function listExtendQueryBefore($query, $definition){
+        if(!$this->user->hasAccess('arkylus.stockmanagement.manage_stock')){
+            $query->where('user_id',\BackendAuth::getUser()->id);
+        }
+        
+       
+    }
+    
 
     public function listExtendQuery($query, $definition)
     {
-       
+       //dd($this->user->hasAccess('arkylus.stockmanagement.manage_item'));
        if ($definition == 'trashed')
        {
            $query->onlyTrashed();
        }
+
+       
+
+
     }
+    /*
+    public function listExtendColumns($list)
+    {
+        if ($this->user->hasAccess('arkylus.stockmanagement.*')) {
+            $list->addColumns([     
+                'user' => [
+                  'label' =>  'arkylus.stockmanagement::lang.item.user',
+                  'relation' =>  'user',
+                  'select' =>  'login',
+                  'clickable' =>  false,
+                  'sortable' =>  false,
+                  'searchable' =>  true,
+
+                ],
+            ]);
+        }
+    }*/
+
+
 
     // added due to hover problem
     public function listInjectRowClass($record, $value)
@@ -51,6 +84,10 @@ class Items extends Controller
     {
         $query->withTrashed();
     }*/
+
+    public function formBeforeSave($model){
+        $model->user_id = \BackendAuth::getUser()->id;
+    }
 
     public function index()
     {
@@ -159,6 +196,7 @@ class Items extends Controller
                         'item_id'=>$item,
                         'quantity'=>$quantity,
                         'op_type'=>$optype,
+                        'user_id'=>\BackendAuth::getUser()->id,
                         'created_at' => Carbon::now(),
                         'updated_at' => Carbon::now(),
                     ]);

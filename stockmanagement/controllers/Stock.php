@@ -13,7 +13,7 @@ class Stock extends Controller
     public $listConfig = 'config_list.yaml';
 
     public $requiredPermissions = [
-        'arkylus.stockmanagement.adjustment',       
+        'arkylus.stockmanagement.manage_stock',       
     ];
 
 
@@ -29,6 +29,10 @@ class Stock extends Controller
             $join->on('arkylus_stockmanagement_items.id', '=', 'arkylus_stockmanagement_stocks.item_id')
             ->where('arkylus_stockmanagement_items.deleted_at',null);
         });
+
+        if($this->user->hasAccess('arkylus.stockmanagement.manage_stock')){
+            $query->where('arkylus_stockmanagement_stocks.user_id',\BackendAuth::getUser()->id);
+        }
            
 
     }
@@ -109,7 +113,11 @@ class Stock extends Controller
 
                     DB::table('arkylus_stockmanagement_stocks')
                     ->where('id', $id)
-                    ->update(['quantity'=>$quantity,'updated_at' => Carbon::now()]);
+                    ->update([
+                        'quantity'=>$quantity,
+                        'user_id'=>\BackendAuth::getUser()->id,
+                        'updated_at' => Carbon::now()
+                    ]);
                                     
                     DB::table('arkylus_stockmanagement_stock_balances')
                     ->where('item_id', $item)

@@ -32,6 +32,10 @@ class Item extends Model
         'stock_balance' => 'Arkylus\Stockmanagement\Models\StockBalance'
     ];
 
+    public $belongsTo = [
+        'user' => 'Backend\Models\User'
+    ];
+
     public $attachOne = [
         'photo'=> 'System\Models\File'
     ];

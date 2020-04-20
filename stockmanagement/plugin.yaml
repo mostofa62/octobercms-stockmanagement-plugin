@@ -3,7 +3,7 @@ plugin:
     description: 'arkylus.stockmanagement::lang.plugin.description'
     author: Arkylus
     icon: oc-icon-bar-chart
-    homepage: 'http://stockmanagement.arkylus.com'
+    homepage: 'http://arkylus.com/stockmanagement'
 permissions:
     arkylus.stockmanagement.manage_item:
         tab: 'arkylus.stockmanagement::lang.plugin.name'
@@ -11,9 +11,9 @@ permissions:
     arkylus.stockmanagement.dashboard:
         tab: 'arkylus.stockmanagement::lang.plugin.name'
         label: 'arkylus.stockmanagement::lang.plugin.dashboard'
-    arkylus.stockmanagement.adjustment:
+    arkylus.stockmanagement.manage_stock:
         tab: 'arkylus.stockmanagement::lang.plugin.name'
-        label: 'arkylus.stockmanagement::lang.plugin.adjustment'
+        label: 'arkylus.stockmanagement::lang.plugin.manage_stock'
     'arkylus.stockmanagement.*':
         tab: 'arkylus.stockmanagement::lang.plugin.name'
         label: 'arkylus.stockmanagement::lang.plugin.admin'
@@ -21,9 +21,12 @@ navigation:
     dashboard:
         label: 'arkylus.stockmanagement::lang.plugin.name'
         url: arkylus/stockmanagement/dashboard
-        icon: icon-bar-chart
+        icon: icon-stock
+        iconSvg: 'plugins/arkylus/stockmanagement/assets/images/stockmanagement-icon.svg'
         permissions:
             - arkylus.stockmanagement.dashboard
+            - arkylus.stockmanagement.manage_item
+            - arkylus.stockmanagement.manage_stock
         sideMenu:
             items:
                 label: 'arkylus.stockmanagement::lang.plugin.items'
@@ -31,9 +34,10 @@ navigation:
                 icon: icon-list
                 permissions:
                     - arkylus.stockmanagement.manage_item
+                    - arkylus.stockmanagement.manage_stock
             adjustment:
                 label: 'arkylus.stockmanagement::lang.plugin.adjustment'
                 url: arkylus/stockmanagement/stock
                 icon: icon-database
                 permissions:
-                    - arkylus.stockmanagement.adjustment
+                    - arkylus.stockmanagement.manage_stock

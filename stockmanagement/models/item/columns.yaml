@@ -44,6 +44,14 @@ columns:
         label: deleted_at
         type: datetime
         invisible: true
+    user:
+        label: 'arkylus.stockmanagement::lang.item.user'
+        relation: user
+        select: login
+        clickable: false
+        sortable: false
+        searchable : true
+        permissions: 'arkylus.stockmanagement.manage_stock'
     stock_in_out:
         label: 'arkylus.stockmanagement::lang.label.stock_action'
         type: partial
@@ -51,3 +59,4 @@ columns:
         clickable: false
         sortable: false
         searchable : false
+        permissions: 'arkylus.stockmanagement.manage_stock'

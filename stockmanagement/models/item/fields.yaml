@@ -10,16 +10,17 @@ fields:
         size: ''
         span: auto
         type: textarea
-    status:
-        label: 'arkylus.stockmanagement::lang.item.status'
-        span: auto
-        type: switch
     unit:
         label: 'arkylus.stockmanagement::lang.item.unit'
         showSearch: true
         span: auto
         type: dropdown
         options: listUnits
+    sku_unit:
+        label: 'arkylus.stockmanagement::lang.item.sku'
+        span: auto
+        type: text
+       
     photo:
         label: 'arkylus.stockmanagement::lang.item.photo'
         mode: image
@@ -31,7 +32,12 @@ fields:
             extension: auto
         span: auto
         type: fileupload
-    sku_unit:
-        label: 'arkylus.stockmanagement::lang.item.sku'
-        span: auto
-        type: text
+
+    status:
+        label: 'arkylus.stockmanagement::lang.item.status'
+        span: full
+        type: switch
+        on: 'arkylus.stockmanagement::lang.label.active'
+        off: 'arkylus.stockmanagement::lang.label.inactive'
+        permissions: 'arkylus.stockmanagement.manage_stock' 
+    

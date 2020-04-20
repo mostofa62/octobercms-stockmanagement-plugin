@@ -4,7 +4,8 @@
         'description' => 'A Simple Stock Management',
         'dashboard' => 'Dashboard',
         'items' => 'Items',
-        'adjustment' => 'Adjustment',
+        'adjustment' => 'Adjustment',  //menu
+        'manage_stock'=>'Manage Stock', //Permission
         'admin' => 'Admin',
     ],
     'item' => [
@@ -14,6 +15,7 @@
         'manage' => 'Manage Item',
         'created_at' => 'Entry Date',
         'updated_at' => 'Modified Date',
+        'user'=>'Created By',
         'unit' => 'Unit',
         'photo' => 'Photo',
         'sku' => 'SKU',
