@@ -1,4 +1,29 @@
+//ux related
 
+function op_type_selection(id){
+	e = $('#op_type'+id);
+	btn = $('#stkbtn'+id);
+	show = $('.btntxtadd'+id);
+	hide = $('.btntxtremove'+id);	
+	
+	if(e.val()==1){
+		if(btn.hasClass('btn-danger')){ btn.removeClass('btn-danger') };
+		btn.addClass('btn-success');
+		show.show(); hide.hide();
+	}
+	else if(e.val()==2){
+		if(btn.hasClass('btn-success')){ btn.removeClass('btn-success') };
+		btn.addClass('btn-danger');
+		show.hide(); hide.show();
+	}else{
+		if(btn.hasClass('btn-success') || btn.hasClass('btn-danger')){ btn.removeClass('btn-success').removeClass('btn-danger'); };
+		//btn.addClass('btn-default');
+		show.show(); hide.hide();
+	}
+	
+	
+
+}
 //stock in out saving function
 function stock_in_out_save(id){
 	data = {

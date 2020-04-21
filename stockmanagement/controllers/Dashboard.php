@@ -33,8 +33,8 @@ class Dashboard extends Controller
     	//$this->addJs('/plugins/arkylus/stockmanagement/assets/lib/chartjs/Chart.min.js', 'Arkylus.Stockmanagement');
 
     	$totalItems = DB::table('arkylus_stockmanagement_items')->count();
-    	$totalActiveItems = DB::table('arkylus_stockmanagement_items')->where('status',1)->count();
-    	$totalInactiveItems = DB::table('arkylus_stockmanagement_items')->where('status',0)->count();
+    	$totalActiveItems = DB::table('arkylus_stockmanagement_items')->where('is_activated',1)->count();
+    	$totalInactiveItems = DB::table('arkylus_stockmanagement_items')->where('is_activated',0)->count();
         $totalTrashItems = DB::table('arkylus_stockmanagement_items')->where('deleted_at','<>',null)->count();
     	
     	

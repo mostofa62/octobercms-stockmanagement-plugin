@@ -26,8 +26,8 @@ columns:
         label: description
         type: text
         invisible: true
-    status:
-        label: status
+    isActivated:
+        label: 'arkylus.stockmanagement::lang.item.is_activated'
         type: partial
         path: $/arkylus/stockmanagement/models/item/_status_partial.htm
         clickable: false

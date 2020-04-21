@@ -1,4 +1,4 @@
-<?php if($record->status == 1): ?>
+<?php if($record->is_activated == 1): ?>
 
 <div class="form-group span-left">
         <label><?= e(trans('arkylus.stockmanagement::lang.stocks.quantity')) ?></label>
@@ -9,7 +9,7 @@
             <?= e(trans('arkylus.stockmanagement::lang.stocks.op_type')) ?>
         </label>
 
-        <select id="op_type<?= $record->id ?>" name="op_type" class="form-control">
+        <select id="op_type<?= $record->id ?>" name="op_type" class="form-control" onchange="op_type_selection(<?= $record->id ?>)">
         	<option value=""><?= e(trans('arkylus.stockmanagement::lang.util.op_in_out')) ?></option>
         	<?php foreach(\Arkylus\Stockmanagement\Classes\Util::op_type() as $k=>$v ): ?>            
             <option value="<?= $k ?>"><?= e(trans($v)) ?></option>
@@ -22,15 +22,34 @@
     <span id="unit" class="info"><i><?= \Arkylus\Stockmanagement\Classes\Util::item_unit($record->unit) ?></i></span>
 </div>
 <div class="form-group span-right text-right">
-	<button id="stkbtn<?= $record->id ?>" class="btn btn-success" type="button" onclick="stock_in_out_save(<?= $record->id ?>)">
+	<button id="stkbtn<?= $record->id ?>" class="btn btn-default" type="button" onclick="stock_in_out_save(<?= $record->id ?>)">
+        <span class="btntxtadd<?= $record->id ?>">
 		<?= e(trans('arkylus.stockmanagement::lang.util.stock_in_out_save')) ?>
+        </span>
+        <span class="btntxtremove<?= $record->id ?>" style="display: none;">
+        <?= e(trans('arkylus.stockmanagement::lang.util.stock_in_out_remove')) ?>
+        </span>
 			
 	</button>
 </div>
 
 
 <?php else: ?>
+
+<?php if ($this->user->hasAccess('arkylus.stockmanagement.manage_item')): ?>
+<div data-request-data="id: <?= $record->id ?>" class="text-center">
+<button 
+data-request="onActivateItem"
+class="btn btn-success oc-icon-toggle-on"
+data-stripe-load-indicator>
+     
+    <?= e(trans('arkylus.stockmanagement::lang.label.activate_item')) ?>
+</button>
+</div>
+<?php else: ?>
 <span class="flash-message static info">
     <?= e(trans('arkylus.stockmanagement::lang.message.activateitemforstock')) ?>
 </span>
+<?php endif; ?>
+
 <?php endif; ?>

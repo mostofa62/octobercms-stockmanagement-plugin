@@ -85,7 +85,7 @@ class Items extends Controller
         $query->withTrashed();
     }*/
 
-    public function formBeforeSave($model){
+    public function formBeforeCreate($model){
         $model->user_id = \BackendAuth::getUser()->id;
     }
 
@@ -144,7 +144,22 @@ class Items extends Controller
     }
     */
 
-    
+    public function onActivateItem(){
+        $id = input('id');
+        
+        if ($item = Item::find($id)) {
+            $item->is_activated = 1;
+            $item->save();
+            return $this->listRefresh();
+              
+        }else{
+            throw new AjaxException([
+                    'error' => ang::get('arkylus.stockmanagement::lang.message.itemnotfound'),
+                    
+              ]);
+        }
+        
+    }
 
 
 

@@ -1,1 +1,1 @@
-<span class="<?= $record->status ? 'oc-icon-circle text-success':'oc-icon-circle text-danger' ?>"><?= $record->status ? e(trans('arkylus.stockmanagement::lang.label.active')):e(trans('arkylus.stockmanagement::lang.label.inactive')) ?></span>
+<span class="<?= $record->is_activated ? 'oc-icon-circle text-success':'oc-icon-circle text-danger' ?>"><?= $record->is_activated ? e(trans('arkylus.stockmanagement::lang.label.active')):e(trans('arkylus.stockmanagement::lang.label.inactive')) ?></span>
