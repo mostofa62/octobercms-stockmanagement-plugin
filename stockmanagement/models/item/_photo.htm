@@ -1,11 +1,11 @@
 <?php if ($this->user->hasAccess('arkylus.stockmanagement.manage_item')): ?>
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-6 col-sm-12 edit">
 <a href="<?= Backend::url('arkylus/stockmanagement/items/update', $record->id) ?>" class="btn btn-default btn-sm m-y oc-icon-edit"><?= e(trans('arkylus.stockmanagement::lang.label.edit')) ?></a>
 </div>
 <?php endif; ?>
 <?php if(isset($record->photo)): ?>
-<div class="col-md-6">
+<div class="col-md-6 col-sm-12 photo">
 <img src="<?= $record->photo->getThumb(100, 'auto'); ?>">
 </div>
 </div>

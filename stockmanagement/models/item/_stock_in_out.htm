@@ -1,37 +1,46 @@
 <?php if($record->is_activated == 1): ?>
 
-<div class="form-group span-left">
-        <label><?= e(trans('arkylus.stockmanagement::lang.stocks.quantity')) ?></label>
-        <input id="quantity<?= $record->id ?>" type="number" min="1" name="quantity" value="" class="form-control" />
-</div>
-<div class="form-group dropdown-field span-right">
-        <label>
+<div class="form-group">
+        <div class="col-md-6 quantity">
+            <label><?= e(trans('arkylus.stockmanagement::lang.stocks.quantity')) ?></label>
+            <input id="quantity<?= $record->id ?>" type="number" min="1" name="quantity" value="" class="form-control" />
+        </div>
+        <div class="col-md-6 dropdown-field op_type">
+            <label>
             <?= e(trans('arkylus.stockmanagement::lang.stocks.op_type')) ?>
-        </label>
+            </label>
 
-        <select id="op_type<?= $record->id ?>" name="op_type" class="form-control" onchange="op_type_selection(<?= $record->id ?>)">
-        	<option value=""><?= e(trans('arkylus.stockmanagement::lang.util.op_in_out')) ?></option>
-        	<?php foreach(\Arkylus\Stockmanagement\Classes\Util::op_type() as $k=>$v ): ?>            
-            <option value="<?= $k ?>"><?= e(trans($v)) ?></option>
-            <?php endforeach; ?>
-        </select>
+            <select id="op_type<?= $record->id ?>" name="op_type" class="form-control" onchange="op_type_selection(<?= $record->id ?>)">
+                <option value=""><?= e(trans('arkylus.stockmanagement::lang.util.op_in_out')) ?></option>
+                <?php foreach(\Arkylus\Stockmanagement\Classes\Util::op_type() as $k=>$v ): ?>            
+                <option value="<?= $k ?>"><?= e(trans($v)) ?></option>
+                <?php endforeach; ?>
+            </select>
+
+        </div>
 </div>
-<div class="form-group span-left text-left">
-    <label><?= e(trans('arkylus.stockmanagement::lang.label.stock_balance')) ?></label>
-    <span id="blnc<?= $record->id ?>"><strong class="info"><?= isset($record->stock_balance)? $record->stock_balance->balance_quantity:0 ?></strong></span>
-    <span id="unit" class="info"><i><?= \Arkylus\Stockmanagement\Classes\Util::item_unit($record->unit) ?></i></span>
-</div>
-<div class="form-group span-right text-right">
-	<button id="stkbtn<?= $record->id ?>" class="btn btn-default" type="button" onclick="stock_in_out_save(<?= $record->id ?>)">
+
+<div class="form-group">
+    <div class="col-md-6 text-left balance_quantity">
+        <label><?= e(trans('arkylus.stockmanagement::lang.label.stock_balance')) ?></label>
+        <span id="blnc<?= $record->id ?>"><strong class="info"><?= isset($record->stock_balance)? $record->stock_balance->balance_quantity:0 ?></strong></span>
+        <span id="unit" class="info"><i><?= \Arkylus\Stockmanagement\Classes\Util::item_unit($record->unit) ?></i></span>
+    </div>
+    <div class="col-md-6 text-right stkbtn">
+
+        <button id="stkbtn<?= $record->id ?>" class="btn btn-default" type="button" onclick="stock_in_out_save(<?= $record->id ?>)">
         <span class="btntxtadd<?= $record->id ?>">
-		<?= e(trans('arkylus.stockmanagement::lang.util.stock_in_out_save')) ?>
+        <?= e(trans('arkylus.stockmanagement::lang.util.stock_in_out_save')) ?>
         </span>
         <span class="btntxtremove<?= $record->id ?>" style="display: none;">
         <?= e(trans('arkylus.stockmanagement::lang.util.stock_in_out_remove')) ?>
         </span>
-			
-	</button>
+            
+        </button>
+
+    </div>
 </div>
+
 
 
 <?php else: ?>

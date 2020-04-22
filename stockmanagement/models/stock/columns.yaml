@@ -36,13 +36,13 @@ columns:
         label: 'arkylus.stockmanagement::lang.stocks.created_at'
         type: timetense
         searchable: true
-        sortable: false
+        sortable: true
         ignoreTimezone: true
     updated_at:
         label: 'arkylus.stockmanagement::lang.stocks.updated_at'
         type: timetense        
         searchable: true
-        sortable: false
+        sortable: true
         ignoreTimezone: true
     action_buttons:
         label: 'arkylus.stockmanagement::lang.label.action_buttons'
