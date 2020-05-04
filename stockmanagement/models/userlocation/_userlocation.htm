@@ -1,0 +1,3 @@
+<?php if ($this->user->hasAccess('arkylus.stockmanagement.manage_location')): ?>
+<a href="<?= Backend::url('arkylus/stockmanagement/userlocation/assign', $record->id) ?>" class="btn btn-default btn-sm m-y oc-icon-plus"><?= e(trans('arkylus.stockmanagement::lang.label.userlocation_assign')) ?></a>
+<?php endif; ?>

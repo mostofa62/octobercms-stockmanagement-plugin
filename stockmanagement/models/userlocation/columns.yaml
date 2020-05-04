@@ -1,0 +1,28 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: true
+        sortable: false    
+        
+    name:
+        label: 'arkylus.stockmanagement::lang.user.name'
+        type: text
+        select: concat(first_name,' ',last_name)        
+
+    login:
+        label: 'arkylus.stockmanagement::lang.user.login'
+        type: text        
+
+    email:
+        label: 'arkylus.stockmanagement::lang.user.email'
+        type: text
+
+    action:
+        label: 'arkylus.stockmanagement::lang.label.userlocation_action'
+        type: partial
+        path: $/arkylus/stockmanagement/models/userlocation/_userlocation.htm
+        clickable: false
+        sortable: false
+        searchable : false
+        permissions: 'arkylus.stockmanagement.manage_location'

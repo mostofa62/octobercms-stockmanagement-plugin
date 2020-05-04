@@ -4,9 +4,11 @@
         'description' => 'A Simple Stock Management',
         'dashboard' => 'Dashboard',
         'items' => 'Items',
-        'adjustment' => 'Adjustment',  //menu
-        'manage_stock'=>'Manage Stock', //Permission
+        'adjustment' => 'Adjustment',
+        'manage_stock' => 'Manage Stock',
         'admin' => 'Admin',
+        'manage_location' => 'Locations',
+        'manage_user_location'=>'User Location'
     ],
     'item' => [
         'name' => 'Name',
@@ -15,10 +17,15 @@
         'manage' => 'Manage Item',
         'created_at' => 'Entry Date',
         'updated_at' => 'Modified Date',
-        'user'=>'Created By',
+        'user' => 'Created By',
         'unit' => 'Unit',
         'photo' => 'Photo',
         'sku' => 'SKU',
+    ],
+    'user'=>[
+        'name'=>'Name',
+        'login'=>'Username',
+        'email'=>'Email',
     ],
     'stocks' => [
         'quantity' => 'Quantity',
@@ -31,8 +38,8 @@
         'op_in' => 'In',
         'op_out' => 'Out',
         'stock_in_out_save' => 'Add to stock',
-        'stock_in_out_remove'=>'Deduct from stock',
-        'stock_adjust'=>'Adjust to stock',
+        'stock_in_out_remove' => 'Deduct from stock',
+        'stock_adjust' => 'Adjust to stock',
     ],
     'label' => [
         'active' => 'Yes',
@@ -49,7 +56,9 @@
         'from_stock_balance' => 'From Balance',
         'action_buttons' => 'Actions',
         'action_delete' => 'Remove',
-        'activate_item'=> 'Activate'
+        'activate_item' => 'Activate',
+        'userlocation_action'=>'Assign Location to User',
+        'userlocation_assign'=>'Assignment',
     ],
     'message' => [
         'noinputstockmessage' => 'Please provide Quantity greated then 0 and Select an Opearation-Type',
@@ -63,5 +72,12 @@
         'action_delete_sure' => 'Are you sure want to remove this?',
         'restore' => 'Restored successfully',
         'delete' => 'Deleted parmanently',
+    ],
+    'location' => [
+        'code' => 'Location Code',
+        'is_salespoint' => 'IsOutLet',
+        'name' => 'Location Name',
+        'details' => 'Details',
+        'created_at' => 'Entry Date',
     ],
 ];

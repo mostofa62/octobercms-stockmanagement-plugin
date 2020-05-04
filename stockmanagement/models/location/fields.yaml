@@ -1,0 +1,19 @@
+fields:
+    name:
+        label: 'arkylus.stockmanagement::lang.location.name'
+        span: left
+        required: 1
+        type: text
+    code:
+        label: 'arkylus.stockmanagement::lang.location.code'
+        span: right
+        type: text
+    details:
+        label: 'arkylus.stockmanagement::lang.location.details'
+        size: ''
+        span: full
+        type: textarea
+    is_salespoint:
+        label: 'arkylus.stockmanagement::lang.location.is_salespoint'
+        span: left
+        type: switch

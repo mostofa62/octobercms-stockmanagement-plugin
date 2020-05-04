@@ -1,0 +1,29 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: true
+    code:
+        label: code
+        type: text
+    name:
+        label: name
+        type: text
+    details:
+        label: details
+        type: text
+        invisible: true
+    is_salespoint:
+        label: 'arkylus.stockmanagement::lang.location.is_salespoint'
+        type: switch
+    created_at:
+        label: created_at
+        type: datetime
+    updated_at:
+        label: updated_at
+        type: datetime
+        invisible: true
+    deleted_at:
+        label: deleted_at
+        type: datetime
+        invisible: true

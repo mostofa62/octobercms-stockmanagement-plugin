@@ -1,0 +1,11 @@
+name: Location
+modelClass: Arkylus\Stockmanagement\Models\Location
+form: $/arkylus/stockmanagement/models/location/fields.yaml
+defaultRedirect: arkylus/stockmanagement/location
+create:
+    redirect: 'arkylus/stockmanagement/location/update/:id'
+    redirectClose: arkylus/stockmanagement/location
+update:
+    redirect: arkylus/stockmanagement/location
+    redirectClose: arkylus/stockmanagement/location
+preview: {  }

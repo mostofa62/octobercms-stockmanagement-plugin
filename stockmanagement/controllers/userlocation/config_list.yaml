@@ -1,0 +1,5 @@
+title: UserLocation
+modelClass: Backend\Models\User
+list: $/arkylus/stockmanagement/models/userlocation/columns.yaml
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20

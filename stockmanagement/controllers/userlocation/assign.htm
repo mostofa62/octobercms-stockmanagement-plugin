@@ -1,0 +1,41 @@
+<div class="control-list">
+	<?php if( isset($locaitons) && !empty($locaitons)): ?>
+	<form class="form-elements" role="form" method="post">
+	<?= Form::open(['url' => 'assign', 'method' => 'post']) ?>
+    <table class="table data">
+    	<thead>
+    		<th class="list-checkbox">                    
+            </th>
+    		<th><span><?= e(trans('arkylus.stockmanagement::lang.location.code')) ?></span></th>
+    		<th><span><?= e(trans('arkylus.stockmanagement::lang.location.name')) ?></span></th>
+    	</thead>
+        
+        <tbody>
+        	<?php foreach($locaitons as $location): ?>
+            <tr>
+            	<td>
+            		<div class="checkbox custom-checkbox nolabel">
+                        <input id="checkbox_<?= $location->id ?>" type="checkbox" name="checked[]" value = "<?= $location->id ?>" <?= in_array($location->id, $checked_ul)?"checked":null ?> />
+                        <label for="checkbox_<?= $location->id ?>">Check</label>
+                    </div>
+            	</td>
+            	<td>
+            		<?= $location->code ?>
+            	</td>
+                <td><?= $location->name ?></td>                
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+        <tfoot>
+        	<tr colspan="2">
+        		<td>
+        			<button class="btn btn-primary" type="submit">
+        				<?= e(trans('arkylus.stockmanagement::lang.label.userlocation_assign')) ?>
+        			</button>
+        		</td>
+        	</tr>
+        </tfoot>
+    </table>
+    <?= Form::close() ?>
+    <?php endif;  ?>
+</div>

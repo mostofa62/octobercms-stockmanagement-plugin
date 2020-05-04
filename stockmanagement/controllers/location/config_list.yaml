@@ -1,0 +1,11 @@
+title: Location
+modelClass: Arkylus\Stockmanagement\Models\Location
+list: $/arkylus/stockmanagement/models/location/columns.yaml
+recordUrl: 'arkylus/stockmanagement/location/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

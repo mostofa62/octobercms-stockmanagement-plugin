@@ -17,12 +17,15 @@ permissions:
     'arkylus.stockmanagement.*':
         tab: 'arkylus.stockmanagement::lang.plugin.name'
         label: 'arkylus.stockmanagement::lang.plugin.admin'
+    arkylus.stockmanagement.manage_location:
+        tab: 'arkylus.stockmanagement::lang.plugin.name'
+        label: 'arkylus.stockmanagement::lang.plugin.manage_location'
 navigation:
     dashboard:
         label: 'arkylus.stockmanagement::lang.plugin.name'
         url: arkylus/stockmanagement/dashboard
         icon: icon-stock
-        iconSvg: 'plugins/arkylus/stockmanagement/assets/images/stockmanagement-icon.svg'
+        iconSvg: plugins/arkylus/stockmanagement/assets/images/stockmanagement-icon.svg
         permissions:
             - arkylus.stockmanagement.dashboard
             - arkylus.stockmanagement.manage_item
@@ -41,3 +44,14 @@ navigation:
                 icon: icon-database
                 permissions:
                     - arkylus.stockmanagement.manage_stock
+            manage_location:
+                label: 'arkylus.stockmanagement::lang.plugin.manage_location'
+                url: arkylus/stockmanagement/location
+                icon: icon-map-marker
+                permissions:
+                    - arkylus.stockmanagement.manage_location
+
+            manage_user_location:
+                label: 'arkylus.stockmanagement::lang.plugin.manage_user_location'
+                url: arkylus/stockmanagement/userlocation
+                icon: icon-user               

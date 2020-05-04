@@ -7,4 +7,30 @@
     - builder_table_create_arkylus_stockmanagement_stocks.php
     - 'Created table arkylus_stockmanagement_stock_balances'
     - builder_table_create_arkylus_stockmanagement_stock_balances.php
-
+1.0.3:
+    - 'Created table arkylus_stockmanagement_locations'
+    - builder_table_create_arkylus_stockmanagement_locations.php
+1.0.4:
+    - 'Updated table arkylus_stockmanagement_stocks'
+    - builder_table_update_arkylus_stockmanagement_stocks_4.php
+1.0.5:
+    - 'Updated table arkylus_stockmanagement_stocks'
+    - builder_table_update_arkylus_stockmanagement_stocks_4.php
+1.0.6:
+    - 'Updated table arkylus_stockmanagement_stocks'
+    - builder_table_update_arkylus_stockmanagement_stocks_5.php
+1.0.7:
+    - 'Updated table arkylus_stockmanagement_stock_balances'
+    - builder_table_update_arkylus_stockmanagement_stock_balances_2.php
+1.0.8:
+    - 'Updated table arkylus_stockmanagement_stock_balances'
+    - builder_table_update_arkylus_stockmanagement_stock_balances_3.php
+1.0.9:
+    - 'Updated table arkylus_stockmanagement_stock_balances'
+    - builder_table_update_arkylus_stockmanagement_stock_balances_4.php
+1.0.10:
+    - 'Updated table arkylus_stockmanagement_stock_balances'
+    - builder_table_update_arkylus_stockmanagement_stock_balances_5.php
+1.0.11:
+    - 'Created table arkylus_stockmanagement_user_locations'
+    - builder_table_create_arkylus_stockmanagement_user_locations.php
